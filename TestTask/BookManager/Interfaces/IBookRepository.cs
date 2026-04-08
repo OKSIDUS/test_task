@@ -4,7 +4,7 @@ namespace BookManager.Interfaces
 {
     public interface IBookRepository
     {
-        IEnumerable<Book> Load(string filePath);
-        void Save(IEnumerable<Book> books, string filePath);
+        List<Book> Load(string filePath);
+        void Save(List<Book> books, string filePath);
     }
 }
