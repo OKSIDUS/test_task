@@ -9,5 +9,6 @@ namespace BookManager.Interfaces
         void Add(Book book);
         void Sort();
         List<Book> Search(string titlePart);
+        IReadOnlyList<Book> Books { get; }
     }
 }
