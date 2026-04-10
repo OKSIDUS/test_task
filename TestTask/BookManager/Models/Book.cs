@@ -13,5 +13,15 @@ namespace BookManager.Models
         public int Pages { get; set; }
 
         public Book() { }
+        public Book(string title, string author, int pages)
+        {
+            Title = title ?? throw new ArgumentNullException(nameof(title));
+            Author = author ?? throw new ArgumentNullException(nameof(author));
+
+            if (pages <= 0)
+                throw new ArgumentOutOfRangeException(nameof(pages), "Page count must be positive.");
+
+            Pages = pages;
+        }
     }
 }
