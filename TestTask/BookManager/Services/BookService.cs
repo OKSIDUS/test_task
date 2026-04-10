@@ -28,10 +28,7 @@ namespace BookManager.Services
         {
             _books.Clear();
             var books = _repository.Load(path);
-            foreach (var book in books)
-            {
-                _books.Add(book);
-            }
+            _books.AddRange(books);
         }
 
         public void Save(string path)
@@ -41,6 +38,11 @@ namespace BookManager.Services
 
         public List<Book> Search(string titlePart)
         {
+            if (string.IsNullOrWhiteSpace(titlePart))
+            {
+                return new List<Book>();
+            }
+
             return _books
                 .Where(b => b.Title.Contains(titlePart, StringComparison.OrdinalIgnoreCase))
                 .ToList();

@@ -10,7 +10,7 @@ namespace BookManager.Repositories
 
         public List<Book> Load(string filePath)
         {
-            if (string.IsNullOrEmpty(filePath))
+            if (string.IsNullOrWhiteSpace(filePath))
             {
                 throw new ArgumentException("File path must not be empty.", nameof(filePath));
             }
